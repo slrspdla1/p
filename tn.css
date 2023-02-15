@@ -1,0 +1,15 @@
+.container{
+    margin: 30px 0px 0px 0px;
+}
+
+#ttl{
+    border-radius: 10px;
+    border: solid 1px black;
+    padding: 10px 20px;
+    width: 65px;
+}
+
+.smcont{
+    word-break: keep-all;
+
+}

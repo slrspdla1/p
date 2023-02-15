@@ -9,7 +9,8 @@
     width: 65px;
 }
 
-.smcont{
-    word-break: keep-all;
-
+input {
+    width:10px;
+    height:20px;
+    position:absolute;
 }

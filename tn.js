@@ -1,6 +1,40 @@
-let sentence="동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세 남산 위에 저 소나무 높고 구름 없이 바람서리 불변함은 우리 기상일세 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세"
-let i=0,c=0,testing=0,cnt=0,container=document.getElementsByClassName('container')[0],num=0
-let st2=sentence.split(" ")
+function getQueryStringObject() {
+    var a = window.location.search.substr(1).split('&');
+    if (a == "") return {};
+    var b = {};
+    for (var i = 0; i < a.length; ++i) {
+        var p = a[i].split('=', 2);
+        if (p.length == 1)
+            b[p[0]] = "";
+        else
+            b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+    }
+    return b;
+}
+
+let i=0,c=0,testing=0,cnt=0,container=document.getElementById('cont1'),num=0
+
+async function getsent(){
+    let ttl=document.getElementById('ttl')
+    let qs = getQueryStringObject()
+    let sentence = await getDocument(qs.id)
+    let st2=sentence.body.split(" ")
+    ttl.innerText=title(qs.id);
+    for(content of st2){
+        cnt+=content.length
+        if(cnt>30){
+            cnt=content.length
+            container.insertAdjacentHTML('beforeend','<hr>')
+        }
+        for(j=0;j<content.length;j++){
+            i++;
+            container.insertAdjacentHTML('beforeend',`<span onclick="f(event)">${content[j]}</span>`)
+        }
+        container.insertAdjacentHTML('beforeend','<span> </span>')
+    }
+    container.insertAdjacentHTML('beforeend','<hr>')
+}
+getsent()
 
 function f(event){
     if(c===1){
@@ -31,7 +65,7 @@ function f(event){
             }
         })
         input.addEventListener('click', (event) => {
-            if (testing === 0) {
+            if (testing === 0 && c===1) {
                 num--;
                 let span = document.createElement('span')
                 span.innerText = answer
@@ -69,16 +103,7 @@ function clicked(){
     }
 }
 
-for(content of st2){
-    cnt+=content.length
-    if(cnt>30){
-        cnt=content.length
-        container.insertAdjacentHTML('beforeend','<hr>')
-    }
-    for(j=0;j<content.length;j++){
-        i++;
-        container.insertAdjacentHTML('beforeend',`<span onclick="f(event)">${content[j]}</span>`)
-    }
-    container.insertAdjacentHTML('beforeend','<span> </span>')
+function change(){
+    let cont2=document.getElementById('cont2')
+    cont2.insertAdjacentHTML('beforeend','<input id="chginp">')
 }
-container.insertAdjacentHTML('beforeend','<hr>')

@@ -9,7 +9,33 @@
     width: 65px;
 }
 
-.smcont{
-    word-break: keep-all;
+input {
+    width: 13px;
+    height:20px;
+}
 
+#btn1 {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: blue;
+    border: solid 2px black;
+    font-weight: bold;
+    border-radius: 10px;
+    width:110px;
+    display:flex;
+    justify-content:center;
+    color:white;
+}
+
+#btn2{
+    width:110px;
+    background-color: aqua;
+    border: solid 1px black;
+    border-radius: 10px;
+    font-weight: bold;
+    display:flex;
+    justify-content:center;
+    color:white;
+    margin-top: 20px;
+    padding: 10px;
 }

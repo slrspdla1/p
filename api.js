@@ -53,14 +53,13 @@ function addNewBlock(){
 }
 
 async function sttl(event){
-    let documents = document.getElementById('box-wrapper')
     if(event.key==="Enter"){
+        let documents = document.getElementById('box-wrapper')
         let inp=document.getElementById('ttl')
         let result = await postDocuments({title: inp.value, body: ''})
         let key = result.name
         let data = await getDocuments()
         inp.remove()
-        num++;
         documents.insertAdjacentHTML('beforeend', `
             <div class="second" id="${key}" onclick="goto('${key}')">${data[key].title}</div>
         `)

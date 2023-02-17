@@ -107,9 +107,9 @@ function clicked(){
 
 function change(){
     let btn=document.getElementById('chbt')
-    let bg=docukement.getElementById('container')
+    let bigcon=document.getElementById('container');
     btn.style.display='none';
-    document.bg.insertAdjacentHTML('beforeend','<input id="chginp" onkeydown="changebd(event)">')
+    bigcon.insertAdjacentHTML('beforeend','<input id="chginp" onkeydown="changebd(event)">')
     let k=document.getElementById('chginp')
     k.value=bodyText;
     k.style.alignItems='flex-start';
@@ -129,4 +129,15 @@ async function changebd(event){
         inp.remove()
         bt.style.display='block';
     }
+}
+
+async function del(){
+    let qs = getQueryStringObject() 
+    let id = qs.id
+    let response = await fetch(`https://prjt-bb444-default-rtdb.asia-southeast1.firebasedatabase.app/documents/${id}.json`, {
+        method: 'DELETE',
+    })
+    let data = await response.json()
+    location.href='index.html'
+    return data
 }

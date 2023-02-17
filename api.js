@@ -61,12 +61,18 @@ async function sttl(event){
     if(event.key==="Enter"){
         let documents = document.getElementById('box-wrapper')
         let inp=document.getElementById('ttl')
-        let result = await postDocuments({title: inp.value, body: ''})
-        let key = result.name
-        let data = await getDocuments()
-        inp.remove()
-        documents.insertAdjacentHTML('beforeend', `
-            <div class="second" id="${key}" onclick="goto('${key}')">${data[key].title}</div>
-        `)
+        if (inp.value==""){
+            alert("제목을 입력해주세요!")
+        }
+        else {
+            let result = await postDocuments({title: inp.value, body: ''})
+            let key = result.name
+            let data = await getDocuments()
+            inp.remove()
+            documents.insertAdjacentHTML('beforeend', `
+                <div class="second" id="${key}" onclick="goto('${key}')">${data[key].title}</div>
+            `)
+        }
+
     }
 }

@@ -9,20 +9,20 @@
   }
 
 #first {
-    height: 20px;
-    width: 166px;
+    height: 2.5vw;
+    width: 30vw; 
     background-color: rgb(253, 248, 248);
     border : 1px solid #54aad2;
     margin: 10px;
 } 
 
-.second { 
-    height: 50px; 
-    width: 170px;
+.second {
+    width: 30vw; 
+    height: 6vw; 
     background-color: rgb(253, 248, 248);
     box-shadow: 0px 3px 2px #74ABFF;
     margin: 10px;
-        border-radius: 10px;
+    border-radius: 10px;
 }
         
 
@@ -43,4 +43,16 @@
     box-shadow: 0px 3px 2px #74ABFF;
     margin: 10px;
     border-radius: 10px;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+}
+
+body {
+    display: flex;
+    justify-content: center;
 }

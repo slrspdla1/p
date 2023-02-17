@@ -13,7 +13,7 @@ async function insertDocuments() {
     let documents = document.getElementById('box-wrapper')
     for (let key in data) {
         const title = data[key].title;
-        const body = (data[key].body.length ) ? data[key].body.slice(0,10) + "..." : "" 
+        const body = (data[key].body.length ) ? data[key].body.slice(0,15) : "" 
         documents.insertAdjacentHTML('beforeend', `
             <div class="second" id="${key}" onclick="goto('${key}')">
                 <div class="title">${title}</div>

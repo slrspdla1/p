@@ -1,4 +1,7 @@
-
+@font-face {
+    font-family: "VITROCORE";
+    src: url(VITRO\ CORE\ TTF.ttf) format('truetype');
+}
 
 .box-absolute {
     width: 100px;
@@ -44,7 +47,6 @@
     margin: 10px;
     border-radius: 10px;
 }
-
 #container{
     display: flex;
     flex-direction: column;
@@ -52,7 +54,8 @@
     width: 80vw;
 }
 
-body {
-    display: flex;
-    justify-content: center;
+body{
+    display:flex;
+    justify-content:center;
+    font-family: "VITROCORE";
 }

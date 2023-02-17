@@ -44,7 +44,7 @@ async function updateDocuments(post, id) {
     let data = await response.json()
     return data
 }
-if (location.href.includes('index.html')) {
+if (!location.href.includes('tn.html')) {
     insertDocuments()
 }
 function goto(id){

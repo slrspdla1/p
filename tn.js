@@ -13,13 +13,15 @@ function getQueryStringObject() {
 }
 
 let i=0,c=0,testing=0,cnt=0,container=document.getElementById('cont1'),num=0
+let bodyText
 
 async function getsent(){
     let ttl=document.getElementById('ttl')
-    let qs = getQueryStringObject()
+    let qs = getQueryStringObject() 
     let sentence = await getDocument(qs.id)
     let st2=sentence.body.split(" ")
-    ttl.innerText=title(qs.id);
+    bodyText=sentence.body
+    ttl.innerText=sentence.title;
     for(content of st2){
         cnt+=content.length
         if(cnt>30){
@@ -104,6 +106,27 @@ function clicked(){
 }
 
 function change(){
-    let cont2=document.getElementById('cont2')
-    cont2.insertAdjacentHTML('beforeend','<input id="chginp">')
+    let btn=document.getElementById('chbt')
+    let bg=docukement.getElementById('container')
+    btn.style.display='none';
+    document.bg.insertAdjacentHTML('beforeend','<input id="chginp" onkeydown="changebd(event)">')
+    let k=document.getElementById('chginp')
+    k.value=bodyText;
+    k.style.alignItems='flex-start';
+}
+
+async function changebd(event){
+    let bt=document.getElementById('chbt')
+    let inp=document.getElementById('chginp')
+    let cont1=document.getElementById('cont1')
+    if(event.key=='Enter'){
+        let qs = getQueryStringObject() 
+        let result = await updateDocuments({body: inp.value}, qs.id)
+        cont1.innerHTML=''
+        if (result) {
+            getsent()
+        }
+        inp.remove()
+        bt.style.display='block';
+    }
 }

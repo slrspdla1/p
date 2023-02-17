@@ -5,14 +5,16 @@
     <link rel="stylesheet" href="tn.css">
 </head>
 <body>
+    <div id="container">
     <div id="ttl">필기이름</div>
     <div id="cont1"></div>
     <div id="cont2">
         <div id="btn1" onclick="clicked()">빈칸 만들기</div>
-        <a href='index.html'>나가기</a>
-        <div onclick="change()">수정하기</div>
+        <div id="btn2" onclick="start()">시험 시작하기</div>
     </div>
-    <div id="btn2" onclick="start()">시험 시작하기</div>
+    <a href='index.html'>나가기</a>
+    <div onclick="change()" id="chbt">수정하기</div>
+    </div>
 </body>
 <script src="api.js"></script>
 <script src="tn.js"></script>
